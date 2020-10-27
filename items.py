@@ -528,7 +528,7 @@ files = {
         'mode': "0644"
     },
     "/etc/timezone": {
-        'content': "Europe/Berlin\n",
+        'content': "{}\n".format(node.metadata.get('locales', {}).get('timezone', 'Europe/Berlin')),
         'owner': "root",
         'group': "root",
         'mode': "0644"
@@ -541,5 +541,13 @@ files = {
         'triggers': {
             'action:regenerate_locale',
         }
+    }
+}
+
+symlinks = {
+    "/etc/localtime": {
+        'target': "/usr/share/zoneinfo/{}".format(node.metadata.get('locales', {}).get('timezone', 'Europe/Berlin')),
+        'owner': 'root',
+        'group': 'root',
     }
 }
