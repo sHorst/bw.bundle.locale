@@ -494,6 +494,7 @@ available_locales = [
     'zh_TW.UTF-8 UTF-8',
     'zu_ZA ISO-8859-1',
     'zu_ZA.UTF-8 UTF-8',
+    'mnw_MM UTF-8',
 ]
 
 used_locales = node.metadata.get('locales', {}).get('used', [
