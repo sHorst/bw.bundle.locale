@@ -526,7 +526,7 @@ actions = {
 }
 
 files = {
-    "/etc/default/locale": {
+    "/etc/locale.conf": {
         'content': "LANG=en_US.UTF-8\nLC_ALL=\"en_US.UTF-8\"\n",
         'owner': "root",
         'group': "root",
@@ -550,6 +550,11 @@ files = {
 }
 
 symlinks = {
+    "/etc/default/locale": {
+        'target': "../locale.conf",
+        'owner': 'root',
+        'group': 'root',
+    },
     "/etc/localtime": {
         'target': "/usr/share/zoneinfo/{}".format(node.metadata.get('locales', {}).get('timezone', 'Europe/Berlin')),
         'owner': 'root',
