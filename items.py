@@ -501,6 +501,20 @@ available_locales = [
     'syr UTF-8',
 ]
 
+if node.os == 'debian' and node.os_version[0] >= 13:
+    available_locales += [
+        'crh_RU UTF-8',
+        'gbm_IN UTF-8',
+        'kv_RU UTF-8',
+        'ltg_LV.UTF-8 UTF-8',
+        'mdf_RU UTF-8',
+        'scn_IT UTF-8',
+        'ssy_ER UTF-8',
+        'su_ID UTF-8',
+        'tok UTF-8',
+        'zgh_MA UTF-8',
+    ]
+
 used_locales = node.metadata.get('locales', {}).get('used', [
     'en_US.UTF-8 UTF-8',
     'de_DE.UTF-8 UTF-8',
